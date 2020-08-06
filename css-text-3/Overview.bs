@@ -491,6 +491,13 @@ Text Processing</h3>
 				* <code class=lang-html>&lt;span style=text-transform:greek>a&lt;/a></code>
 				* <code class=lang-html>&lt;span style=text-transform:fraktur>a&lt;/a></code>
 
+				Contrastingly,
+				a hypothetical markup language could have a <code class=lang-markup>&lt;shout></code> element,
+				with <code class=lang-css>shout { text-transform: uppercase; }</code> in the [=user agent style sheet=]
+				providing the element's default visual rendering.
+				Text-to-speech user agents for that markup language
+				would need to know to render the text of that element in a voice indicating shouting
+				regardless of how that element is styled.
 			</div>
 		</details>
 	</div>
