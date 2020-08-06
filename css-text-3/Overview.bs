@@ -432,10 +432,15 @@ Text Processing</h3>
 		may take 'text-transform' into account when deciding how to present the text,
 		but this is not something to be relied on as a key principle of this feature.
 
-		Future extensions of this property may be introduced
-		to explain how the visual appearance of semantic-altering markup comes to be,
-		but 'text-transform' isn't by itself capable of introducing semantic differences.
-		Those belong in the markup.
+		If a markup language has features allowing authors
+		to create a semantic distinction between two otherwise identical text strings,
+		'text-transform' could be used in the [=user agent style sheet=] to explain
+		why their visual renderings differ.
+		However, CSS in general,
+		and 'text-transform' in particular,
+		isn't by itself capable of introducing semantic differences,
+		and user agents (visual or not) would need to distinguish them
+		even in the absence of CSS.
 
 		<details>
 			<summary>Rationale</summary>
