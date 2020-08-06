@@ -427,6 +427,69 @@ Text Processing</h3>
       text-transform/text-transform-copy-paste-001-manual.html
     </wpt>
 
+	<div class=note>
+		Note: User agents, such as screen readers, that provide a non-visual rendering
+		may take 'text-transform' into account when deciding how to present the text,
+		but this is not something to be relied on as a key principle of this feature.
+
+		Future extensions of this property may be introduced
+		to explain how the visual appearance of semantic-altering markup comes to be,
+		but 'text-transform' isn't by itself capable of introducing semantic differences.
+		Those belong in the markup.
+
+		<details>
+			<summary>Rationale</summary>
+
+			For some values, it may be appropriate for non-visual agents
+			to present the transformed text by default
+			(this is commonly done by screen readers for the case related transforms).
+			For some other values,
+			such as ''full-size-kana'' or ''full-width'',
+			the distinction between the source text
+			and the visual rendering
+			is critical to their purpose,
+			and non transformed text is a more suitable non visual rendering.
+			In either case, non visual user agents may,
+			in addition to their default behavior,
+			offer their users options to present the text differently.
+
+			Moreover, independently of whether the rendering is visual or not,
+			CSS is not guaranteed to apply:
+			<ul>
+				<li>
+					There may be network delays or errors.
+
+				<li>
+					The user may have expressed different styling preferences through a [=user style sheet=].
+
+				<li>
+					The user may be reading the document in an way that does not apply author styles at all
+					as is the case with the “Reader Mode” offered by various browsers.
+
+				<li>
+					The user agent may not support the value specified on 'text-transform'.
+			</ul>
+
+			<div class=example>
+				The following code snippets
+				(some using existing values of 'text-transform',
+				some using some hypothetical future ones)
+				may provide a distinctive rendering in some environments,
+				but they are not an appropriate or reliable way to create distinct identifiers for variables,
+				as they may all,
+				in various circumstances,
+				end up being rendered the same.
+
+				* <code class=lang-html>a</code>
+				* <code class=lang-html>&lt;span style=text-transform:uppercase>a&lt;/a></code>
+				* <code class=lang-html>&lt;span style=text-transform:rot13>a&lt;/a></code>
+				* <code class=lang-html>&lt;span style=text-transform:greek>a&lt;/a></code>
+				* <code class=lang-html>&lt;span style=text-transform:fraktur>a&lt;/a></code>
+
+			</div>
+		</details>
+	</div>
+
     <p>Values have the following meanings:
 
     <dl dfn-for=text-transform dfn-type=value>
