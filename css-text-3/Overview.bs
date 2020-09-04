@@ -4582,6 +4582,25 @@ Word Spacing: the 'word-spacing' property</h3>
     <p class="ls-ex">a&#x3000;b</span>&#x3000;<span class="color-box">c</span>&#x3000;<span class="color-box">&#x5d0;</span>&#x3000;&#x5d1;&#x3000;&#x5d2;</p>
   </div>
 
+    <div class=advisement>
+		Due to as of yet unresolved tensions
+		between the desirable behavior described above
+		and compatibility with legacy browsers and existing sites,
+		this property may alternatively be implemented
+		by inserting the additional spacing after each typographical character unit,
+		instead of between adjacent ones.
+		This results in a different behavior at the end of lines,
+		at the end of inline boxes,
+		or in bidirectional situations.
+		Hybrid approaches,
+		such as inserting the additional spacing after each typographical character unit
+		but not at the end of lines,
+		are also allowed;
+		within the constraints imposed by compatibility,
+		implementations as close as possible to the "between" model
+		are recommended.
+    </div>
+
     <p>Letter spacing ignores invisible zero-width formatting characters
       (such as those from the Unicode Cf category).
       Spacing must be added as if those characters did not exist in the document.
