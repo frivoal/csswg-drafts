@@ -4515,10 +4515,7 @@ Word Spacing: the 'word-spacing' property</h3>
       </wpt>
 
     <div class=advisement>
-        Due to as of yet unresolved tensions
-        between the desirable behavior described above
-        and compatibility with legacy browsers and existing sites,
-        this property may alternatively be implemented
+        This property may alternatively be implemented
         by inserting the additional spacing after each typographical character unit,
         instead of between adjacent ones.
         This results in a different behavior at the end of lines,
@@ -4527,11 +4524,17 @@ Word Spacing: the 'word-spacing' property</h3>
         Hybrid approaches,
         such as inserting the additional spacing after each typographical character unit
         but not at the end of lines,
-        are also allowed;
-        within the constraints imposed by compatibility,
-        implementations as close as possible to the "between" model
-        are recommended.
+        are also allowed.
+
+            Note: This allowance for an alternative model
+            is due to as of yet unresolved tensions
+            between the desirable behavior described above
+            and compatibility with legacy browsers and existing sites.
+            Within the constraints imposed by compatibility,
+            implementations as close as possible to the "between" model
+            are recommended.
     </div>
+
 
   <div class="example">
     <p>Because letter-spacing is not applied at the beginning or end of a line,
