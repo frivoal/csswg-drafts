@@ -4535,7 +4535,7 @@ Word Spacing: the 'word-spacing' property</h3>
 
   <div class="example">
     <p>Because letter-spacing is not applied at the beginning or end of a line,
-    text always fits flush with the edge of the block.
+    text fits flush with the edge of the block.
     <pre>
       p    { letter-spacing: 1em; }
 
@@ -4544,13 +4544,13 @@ Word Spacing: the 'word-spacing' property</h3>
     <p class="ls-ex good ls-fixed-width color-box" style="text-align: left">a&#x3000;b&#x3000;c</p>
     <p class="ls-ex good ls-fixed-width color-box" style="text-align: right">a&#x3000;b&#x3000;c</p>
 
-    <p>UAs therefore must not append letter spacing to the right or trailing edge of a line:</p>
+    <p>UAs therefore should not append letter spacing to the right or trailing edge of a line:</p>
 
     <p class="ls-ex bad ls-fixed-width color-box" style="text-align: right">a&#x3000;b&#x3000;c&#x3000;</p>
   </div>
 
   <div class="example">
-    <p>A given value of 'letter-spacing' only affects the spacing
+    <p>A given value of 'letter-spacing' should only affect the spacing
     between characters completely contained within the element for which it is specified:
 
     <pre>
@@ -4563,7 +4563,7 @@ Word Spacing: the 'word-spacing' property</h3>
 
     <p>This also means that applying 'letter-spacing' to
     an element containing only a single character
-    has no effect on the rendered result:
+    should have no effect on the rendered result:
 
     <pre>
       p    { letter-spacing: 1em; }
@@ -4573,7 +4573,7 @@ Word Spacing: the 'word-spacing' property</h3>
 
     <p class="ls-ex">a&#x3000;<span class="color-box">b</span>&#X3000;c</p>
 
-    <p>An inline box only includes
+    <p>An inline box should only include
     letter spacing between characters completely contained within that element:
 
     <pre>
@@ -4583,12 +4583,12 @@ Word Spacing: the 'word-spacing' property</h3>
 
     <p class="ls-ex good">a&#x3000;<span class="color-box">b&#x3000;b</span>&#x3000;c</p>
 
-    <p>It is incorrect to include the letter spacing on the right or trailing edge of the element:
+    <p>Letter spacing on the right or trailing edge of the element should not be included:
 
     <p class="ls-ex bad">a&#x3000;<span class="color-box">b&#x3000;b&#x3000;</span>c</p>
 
     <p>Letter spacing is inserted <strong>after</strong> RTL reordering,
-    so the letter spacing applied to the inner span below has no effect,
+    so the letter spacing applied to the inner span below should have no effect,
     since after reordering the "c" doesn't end up next to "&#x5d0;":
     <pre>
       p    { letter-spacing: 1em; }
