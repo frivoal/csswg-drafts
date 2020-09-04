@@ -4188,7 +4188,7 @@ Expanding and Compressing Text</h4>
     it is applied under the same rules as for 'word-spacing'.
     Similarly, when space is distributed to an <a>justification opportunity</a> between
     two <a>typographic character units</a>,
-    it is applied under the same rules as for 'letter-spacing'.
+    it should be applied under the same rules as for 'letter-spacing'.
 
 
   <p>A justification algorithm may divide <a>justification opportunities</a> into different priority levels.
@@ -4518,9 +4518,13 @@ Word Spacing: the 'word-spacing' property</h3>
         This property may alternatively be implemented
         by inserting the additional spacing after each typographical character unit,
         instead of between adjacent ones.
-        This results in a different behavior at the end of lines,
+        In this context, after may either mean
+        on the inline-end side relative to the [=inline base direction|direction=] of the character,
+        or on the [=line-right=] side.
+        This results in a different behavior at the start and end of lines,
         at the end of inline boxes,
         or in bidirectional situations.
+        Under this model, injecting additional spacing after atomic inlines may be skipped.
         Hybrid approaches,
         such as inserting the additional spacing after each typographical character unit
         but not at the end of lines,
@@ -4535,9 +4539,8 @@ Word Spacing: the 'word-spacing' property</h3>
             are recommended.
     </div>
 
-
   <div class="example">
-    <p>Because letter-spacing is not applied at the beginning or end of a line,
+    <p>Because letter-spacing should not be applied at the beginning or end of a line,
     text fits flush with the edge of the block.
     <pre>
       p    { letter-spacing: 1em; }
@@ -4547,13 +4550,16 @@ Word Spacing: the 'word-spacing' property</h3>
     <p class="ls-ex good ls-fixed-width color-box" style="text-align: left">a&#x3000;b&#x3000;c</p>
     <p class="ls-ex good ls-fixed-width color-box" style="text-align: right">a&#x3000;b&#x3000;c</p>
 
-    <p>UAs therefore should not append letter spacing to the right or trailing edge of a line:</p>
+    <p>Applying letter-spacing to the trailing edge of a line
+    yields unevenly- or incorrectly- spaced paragraph edges
+    and skewed centering:</p>
 
     <p class="ls-ex bad ls-fixed-width color-box" style="text-align: right">a&#x3000;b&#x3000;c&#x3000;</p>
-  </div>
 
+    <p class="ls-ex bad ls-fixed-width color-box" style="text-align: center">a&#x3000;b&#x3000;c&#x3000;</p>
+  </div>
   <div class="example">
-    <p>A given value of 'letter-spacing' should only affect the spacing
+    <p>A given value of 'letter-spacing' is expected to only affect the spacing
     between characters completely contained within the element for which it is specified:
 
     <pre>
@@ -4586,7 +4592,8 @@ Word Spacing: the 'word-spacing' property</h3>
 
     <p class="ls-ex good">a&#x3000;<span class="color-box">b&#x3000;b</span>&#x3000;c</p>
 
-    <p>Letter spacing on the right or trailing edge of the element should not be included:
+    <p>Letter spacing on the right or trailing edge of the element
+    should therefore not be included:
 
     <p class="ls-ex bad">a&#x3000;<span class="color-box">b&#x3000;b&#x3000;</span>c</p>
 
